@@ -1,0 +1,266 @@
+    /* Header Wrapper */
+    
+    .header {
+        position: relative;
+        height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: rgb(239, 203, 85);
+    }
+    /* Video Background */
+    
+    .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }
+    /* Overlay */
+    
+    .overlay {
+        position: absolute;
+        top: 110;
+        left: 100;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+        /* Darkened overlay for better text visibility */
+        z-index: -1;
+        animation: fadeInOverlay 5s ease-in-out;
+    }
+    /* Header Content */
+    
+    .header-contents {
+        text-align: left;
+        max-width: 1100px;
+        padding-right: 100px;
+        animation: slideInContent 2s ease-in-out;
+        gap: 20px;
+    }
+    
+    .animated-title {
+        font-size: 7rem;
+        font-weight: 900;
+        margin-left: 100px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: fadeInTitle 1.5s ease-out, zoomIn 2s ease-out;
+        color: rgb(255, 250, 242);
+        text-align: left;
+        padding-bottom: 50px;
+    }
+    
+    .animated-text {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        margin-bottom: 40px;
+        animation: fadeInText 1.8s ease-out 0.5s both;
+        margin-top: 20px;
+    }
+    /* Shop Details Section */
+    
+    .shop-details {
+        text-align: center;
+        padding: 15px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        color: rgb(221, 211, 32);
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 10px;
+        width: 300px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        animation: fadeInShopDetails 2s ease-in-out;
+    }
+    
+    .shop-name {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #e50914;
+        margin-bottom: 10px;
+    }
+    
+    .contact-info {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: aliceblue;
+    }
+    
+    .contact-number,
+    .business-hours {
+        font-size: 0.9rem;
+        margin: 5px 0;
+    }
+    
+    .contact-number::before {
+        content: "📞 ";
+    }
+    
+    .business-hours::before {
+        content: "🕒 ";
+    }
+    /* Buttons */
+    
+    .primary-btn {
+        background-color: #e50914;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .primary-btn:hover {
+        background-color: #b40811;
+        transform: scale(1.05);
+    }
+    
+    .secondary-btn {
+        background-color: transparent;
+        color: #e50914;
+        border: 2px solid #e50914;
+        padding: 15px 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .secondary-btn:hover {
+        background-color: #e50914;
+        color: white;
+        transform: scale(1.05);
+    }
+    /* Animations */
+    
+    @keyframes fadeInTitle {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fadeInText {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes fadeInShopDetails {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    /* Responsiveness */
+    /* 🌟 Responsive Design for All Devices */
+    
+    @media (max-width: 1024px) {
+        .header {
+            height: 75vh;
+        }
+        .animated-title {
+            font-size: 3rem;
+        }
+        .animated-text {
+            font-size: .8rem;
+        }
+        .shop-details {
+            width: 270px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .header {
+            height: 75vh;
+            padding: 0 10px;
+        }
+        .animated-title {
+            font-size: 3.5rem;
+        }
+        .animated-text {
+            font-size: 0.95rem;
+        }
+        .shop-details {
+            width: 250px;
+            padding: 15px;
+            right: 10px;
+            bottom: 10px;
+        }
+        .primary-btn,
+        .secondary-btn {
+            padding: 10px 22px;
+            font-size: 0.9rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .header {
+            height: 75vh;
+        }
+        .animated-title {
+            font-size: 2.7rem;
+            text-align: center;
+        }
+        .animated-text {
+            font-size: 0.7rem;
+            line-height: 1.5;
+        }
+        .shop-details {
+            width: 90%;
+            padding: 12px;
+            right: 5%;
+            bottom: 10px;
+            font-size: .8rem;
+        }
+        .primary-btn,
+        .secondary-btn {
+            padding: 8px 18px;
+            font-size: 0.85rem;
+        }
+    }
+    
+    @media (max-width: 360px) {
+        .header {
+            height: 60vh;
+        }
+        .animated-title {
+            font-size: 2.2rem;
+        }
+        .animated-text {
+            font-size: 0.8rem;
+        }
+        .shop-details {
+            width: 85%;
+            bottom: 10px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        .primary-btn,
+        .secondary-btn {
+            padding: 7px 15px;
+            font-size: 0.8rem;
+        }
+    }

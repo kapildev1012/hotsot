@@ -1,0 +1,65 @@
+/* Food Display Section */
+
+.food-display {
+    margin-top: 2px;
+    padding: 0 10px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+
+/* Heading Style */
+
+.food-display h2 {
+    font-size: max(3vw, 24px);
+    font-weight: 800;
+    color: #c10101;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+    text-align: center;
+    /* Center-align heading */
+}
+
+.food-display h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background-color: #c10000;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.food-display h2:hover::after {
+    width: 100%;
+    /* Expand underline on hover */
+}
+
+
+/* Food Display Grid */
+
+.food-display-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 30px;
+    gap: 55px;
+    padding-bottom: 30px;
+    justify-items: center;
+    /* Centers the grid items */
+}
+
+@media (max-width: 480px) {
+    .food-display-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        margin-top: 30px;
+        gap: 20px;
+        padding-bottom: 20px;
+        justify-items: center;
+        /* Centers the grid items */
+    }
+}

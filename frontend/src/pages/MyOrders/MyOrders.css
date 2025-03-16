@@ -1,0 +1,327 @@
+/* Global Styles */
+
+.my-orders {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+    max-width: 4000px;
+    margin: 0 auto;
+    transition: all 0.9s ease-in-out;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 26px;
+    /* Adjusted for mobile-friendly font */
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+
+/* Orders Container */
+
+.orders-container {
+    display: grid;
+    grid-template-columns: repeat(2, .5fr);
+    gap: 20px;
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+
+/* Order Card */
+
+.order-card {
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-top: 5px solid #000000;
+    /* Domino's Blue */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.order-card:hover {
+    transform: scale(1.019);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.order-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.order-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.order-status {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    gap: 5px;
+    /* Added gap between dot and text */
+}
+
+.status-dot {
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.order-status-text {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* Order Info */
+
+.order-info {
+    margin-bottom: 15px;
+}
+
+.order-items,
+.order-amount {
+    font-size: 18px;
+    /* Adjusted for mobile-friendly font size */
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.order-amount {
+    font-weight: bold;
+    color: #333;
+}
+
+.order-date {
+    font-size: 12px;
+    color: #888;
+}
+
+
+/* Timeline */
+
+.order-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.timeline-step {
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.timeline-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #cc1919;
+    margin-right: 6px;
+    transition: all 0.3s ease;
+}
+
+.timeline-step.active .timeline-dot {
+    background-color: #08c60e;
+}
+
+
+/* Order Actions */
+
+.order-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.track-button,
+.reorder-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 48%;
+}
+
+.track-button:hover,
+.reorder-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.reorder-button {
+    background-color: #4c9102;
+}
+
+.reorder-button:hover {
+    background-color: #f04d1b;
+}
+
+
+/* Error, Loading, No Orders */
+
+.error {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.loading-text,
+.no-orders-text {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+
+
+/* Responsive Design for mobile screens */
+
+@media (max-width: 768px) {
+    .my-orders {
+        padding: 15px;
+        /* More space for content */
+    }
+    h2 {
+        font-size: 20px;
+        /* Slightly smaller heading */
+    }
+    .orders-container {
+        padding: 0 10px;
+    }
+    .order-card {
+        padding: 12px;
+    }
+    .order-image {
+        width: 35px;
+        height: 35px;
+    }
+    .order-status-text {
+        font-size: 14px;
+    }
+    .order-items,
+    .order-amount {
+        font-size: 16px;
+    }
+    .order-timeline {
+        font-size: 12px;
+        flex-direction: column;
+        margin-bottom: 15px;
+        /* Space between items */
+    }
+    .track-button,
+    .reorder-button {
+        font-size: 14px;
+        padding: 10px 12px;
+        /* More padding for easier clicking */
+    }
+}
+
+
+/* Even more compact for smaller mobile screens */
+
+@media (max-width: 480px) {
+    .my-orders {
+        margin-top: 10px;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    .order-card {
+        margin-top: 1px;
+    }
+    .order-image {
+        width: 30px;
+        height: 30px;
+    }
+    .order-status-text {
+        font-size: 10px;
+    }
+    .order-items,
+    .order-amount {
+        font-size: 10px;
+    }
+    .track-button,
+    .reorder-button {
+        font-size: 12px;
+        /* Slightly smaller buttons */
+        padding: 8px 10px;
+    }
+    .order-timeline {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-size: 10px;
+    }
+    .timeline-dot {
+        width: 10px;
+        height: 10px;
+    }
+    .order-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .track-button,
+    .reorder-button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        width: 98%;
+    }
+    .track-button:hover,
+    .reorder-button:hover {
+        background-color: #555;
+        transform: scale(1.05);
+    }
+    .reorder-button {
+        background-color: #aa0707;
+    }
+    .reorder-button:hover {
+        background-color: #f04d1b;
+    }
+}
+
+
+/* Pagination for smaller screens */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-btn {
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.page-btn.active {
+    background-color: #03060a;
+    color: white;
+}

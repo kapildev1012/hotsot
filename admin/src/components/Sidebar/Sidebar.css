@@ -1,0 +1,161 @@
+/* Sidebar Styles */
+
+.sidebar {
+    width: 25%;
+    height: 100000vh;
+    background: linear-gradient(135deg, #2e2e2e, #3a3a3a);
+    /* Subtle gradient background */
+    color: #eaeaea;
+    /* Lighter text color for contrast */
+    font-size: max(1vw, 10px);
+    /* Fluid font size */
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-right: 2%;
+    /* Padding adjustment */
+    padding-left: 2%;
+    border-right: 1.5px solid #B3B3B3;
+    /* Light grey border for separation */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    /* Soft shadow on the right for depth */
+    /* Rounded corners for a more modern look */
+}
+
+
+/* Sidebar Options */
+
+.sidebar-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+
+/* Individual Sidebar Option */
+
+.sidebar-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+
+/* Sidebar Option Hover Effect */
+
+.sidebar-option:hover {
+    background-color: #434343;
+    /* Darker grey background on hover */
+    transform: translateX(5px);
+    /* Slight shift to the right on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Subtle shadow effect */
+}
+
+
+/* Active Link Style */
+
+.sidebar-option.active {
+    background-color: #444444;
+    /* Soft active background */
+    border-color: #ffffff;
+    /* White border for active link */
+    color: #ffffff;
+    /* White text for active state */
+}
+
+
+/* Sidebar Option Icons */
+
+.sidebar-option img {
+    width: 22px;
+    /* Slightly larger icons */
+    transition: transform 0.3s ease;
+}
+
+
+/* Sidebar Option Text */
+
+.sidebar-option p {
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #eaeaea;
+    /* White text color for better contrast */
+    text-transform: capitalize;
+    margin-left: 5px;
+}
+
+
+/* Hide Sidebar Option Text on Smaller Screens */
+
+@media (max-width: 900px) {
+    .sidebar-option p {
+        display: none;
+        /* Hides text for smaller screens */
+    }
+}
+
+
+/* Responsive Adjustments for Different Screen Sizes */
+
+
+/* Medium Screens */
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 25%;
+        /* Slightly narrower on medium screens */
+    }
+}
+
+
+/* Smaller Screens (Tablets and Larger Phones) */
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 35%;
+        /* Increase sidebar width on smaller devices */
+    }
+    .sidebar-options {
+        padding-left: 10%;
+    }
+}
+
+
+/* Mobile Phones */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 40%;
+        /* Make sidebar wider on small screens */
+        padding-left: 15%;
+        /* More padding for mobile devices */
+    }
+    .sidebar-options {
+        gap: 20px;
+        /* Decrease gap between options for smaller devices */
+    }
+}
+
+
+/* Extremely Small Screens (Portrait Phone) */
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 50%;
+        /* Further increase the width for very small devices */
+        padding-left: 20%;
+        /* More space for icons and text */
+    }
+    .sidebar-option {
+        padding: 8px 12px;
+        /* Reduce padding to fit more elements */
+    }
+}
