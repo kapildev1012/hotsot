@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // Config variables
 const currency = "inr";
 const deliveryCharge = 50;
-const frontend_URL = "http://localhost:5173";
+const frontend_URL = "https://hotsot-frontend-d59x.onrender.com";
 
 // Placing an Order (Stripe Payment)
 const placeOrder = async(req, res) => {

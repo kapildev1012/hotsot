@@ -12,6 +12,7 @@ const Navbar = ({ setShowLogin }) => {
   );
   const navigate = useNavigate();
 
+<<<<<<< HEAD
   useEffect(() => {
     const savedPhoto = localStorage.getItem("profilePhoto");
     if (savedPhoto) {
@@ -26,17 +27,35 @@ const Navbar = ({ setShowLogin }) => {
     navigate("/");
   };
 
+=======
+  // Save uploaded profile photo to localStorage
+>>>>>>> 81aa5a0ab0dd18822cf522e98df252909136af8d
   const handleProfilePhotoUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
+<<<<<<< HEAD
         const photoData = reader.result;
         setProfilePhoto(photoData);
         localStorage.setItem("profilePhoto", photoData); // Save to localStorage
+=======
+        const uploadedPhoto = reader.result;
+        setProfilePhoto(uploadedPhoto);
+        localStorage.setItem("profilePhoto", uploadedPhoto); // ✅ Save to localStorage
+>>>>>>> 81aa5a0ab0dd18822cf522e98df252909136af8d
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  // Logout logic
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("profilePhoto"); // ✅ Clear profile photo on logout
+    setToken("");
+    setProfilePhoto(assets.profile_icon); // Reset photo after logout
+    navigate("/");
   };
 
   return (
@@ -86,7 +105,11 @@ const Navbar = ({ setShowLogin }) => {
           <div className="navbar-profile">
             <img src={profilePhoto} alt="Profile" />
             <ul className="navbar-profile-dropdown">
+<<<<<<< HEAD
               
+=======
+             
+>>>>>>> 81aa5a0ab0dd18822cf522e98df252909136af8d
               <li>
                 <label htmlFor="profilePhotoUpload">
                   <p>Upload Photo</p>
@@ -102,7 +125,10 @@ const Navbar = ({ setShowLogin }) => {
               <li onClick={() => navigate("/myorders")}>
                 <p>My Orders</p>
               </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 81aa5a0ab0dd18822cf522e98df252909136af8d
               <hr />
               <li onClick={logout}>
                 <p>Logout</p>

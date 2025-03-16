@@ -7,12 +7,12 @@ const AppDownload = () => {
     <div className="app-download" id="app-download">
       <p>
         For Better Experience Download <br />
-        Tomato App
+        hotspot app
       </p>
       <div className="app-download-platforms">
         {/* Link to Play Store */}
         <a
-          href="https://play.google.com/store/apps/details?id=com.tomatoapp"
+          href=""
           target="_blank"
           rel="noopener noreferrer"
         >
