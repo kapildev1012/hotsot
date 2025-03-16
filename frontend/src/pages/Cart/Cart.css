@@ -62,7 +62,7 @@ body {
 }
 
 .quantity-controls button:hover {
-    background-color: #84937e;
+    background-color: #000000;
 }
 
 .remove-button {
@@ -110,7 +110,7 @@ body {
 
 .cart-total button {
     width: 100%;
-    background-color: #256b00;
+    background-color: #000000;
     color: white;
     border: none;
     padding: 12px 20px;

@@ -11,7 +11,4 @@ export const connectDB = async() => {
         console.error("❌ Error connecting to DB:", error);
         process.exit(1); // Exit the process if connection fails
     }
-};
-
-// add your mongoDB connection string above.
-// Do not use '@' symbol in your databse user's password else it will show an error.
+}

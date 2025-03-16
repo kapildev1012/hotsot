@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../Context/StoreContext";
 import "./Navbar.css";
@@ -7,11 +7,21 @@ import { assets } from "../../assets/assets";
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
-  const [profilePhoto, setProfilePhoto] = useState(assets.profile_icon);
+  const [profilePhoto, setProfilePhoto] = useState(
+    localStorage.getItem("profilePhoto") || assets.profile_icon
+  );
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedPhoto = localStorage.getItem("profilePhoto");
+    if (savedPhoto) {
+      setProfilePhoto(savedPhoto);
+    }
+  }, []);
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("profilePhoto"); // Clear profile photo on logout
     setToken("");
     navigate("/");
   };
@@ -21,7 +31,9 @@ const Navbar = ({ setShowLogin }) => {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setProfilePhoto(reader.result);
+        const photoData = reader.result;
+        setProfilePhoto(photoData);
+        localStorage.setItem("profilePhoto", photoData); // Save to localStorage
       };
       reader.readAsDataURL(file);
     }
@@ -74,10 +86,7 @@ const Navbar = ({ setShowLogin }) => {
           <div className="navbar-profile">
             <img src={profilePhoto} alt="Profile" />
             <ul className="navbar-profile-dropdown">
-              <li onClick={() => navigate("/profile")}>
-                <p>My Profile</p>
-              </li>
-
+              
               <li>
                 <label htmlFor="profilePhotoUpload">
                   <p>Upload Photo</p>
