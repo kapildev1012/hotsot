@@ -292,3 +292,15 @@ body {
         width: 100%;
     }
 }
+
+.promo-success {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.promo-error {
+    color: #FF0000;
+    font-weight: bold;
+    margin-top: 10px;
+}

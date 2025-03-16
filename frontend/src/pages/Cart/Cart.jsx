@@ -13,20 +13,25 @@ const Cart = () => {
     deliveryCharge,
     setCartItems,
   } = useContext(StoreContext);
+
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
+  const [promoMessage, setPromoMessage] = useState(""); // Added for success message
   const navigate = useNavigate();
 
   const handlePromoCodeChange = (e) => {
     setPromoCode(e.target.value);
+    setPromoMessage(""); // Clear message when changing the promo code
   };
 
   const handleApplyPromoCode = () => {
     const validPromoCode = "DISCOUNT10"; // A placeholder valid promo code
     if (promoCode === validPromoCode) {
       setDiscount(10); // Apply a 10% discount
+      setPromoMessage("Coupon code applied successfully! 🎉");
     } else {
       setDiscount(0);
+      setPromoMessage("Invalid promo code. ❌");
     }
   };
 
@@ -131,6 +136,13 @@ const Cart = () => {
               </div>
             )}
             <hr />
+            {discount > 0 && (
+              <div className="cart-total-details">
+                <p>Coupon Applied</p>
+                <p>- {discount}%</p>
+              </div>
+            )}
+            <hr />
             <div className="cart-total-details">
               <b>Total</b>
               <b>
@@ -164,6 +176,11 @@ const Cart = () => {
               />
               <button onClick={handleApplyPromoCode}>Apply</button>
             </div>
+            {promoMessage && (
+              <p className={discount > 0 ? "promo-success" : "promo-error"}>
+                {promoMessage}
+              </p>
+            )}
           </div>
         </div>
       </div>

@@ -128,3 +128,15 @@
         font-size: 22px;
     }
 }
+
+.forgot-password-link {
+    color: #4CAF50;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.forgot-password-link:hover {
+    color: #45a049;
+}
