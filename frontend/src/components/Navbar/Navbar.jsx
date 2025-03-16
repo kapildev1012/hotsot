@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../Context/StoreContext";
 import "./Navbar.css";
@@ -7,24 +7,32 @@ import { assets } from "../../assets/assets";
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
-  const [profilePhoto, setProfilePhoto] = useState(assets.profile_icon);
+  const [profilePhoto, setProfilePhoto] = useState(
+    localStorage.getItem("profilePhoto") || assets.profile_icon
+  );
   const navigate = useNavigate();
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    setToken("");
-    navigate("/");
-  };
-
+  // Save uploaded profile photo to localStorage
   const handleProfilePhotoUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setProfilePhoto(reader.result);
+        const uploadedPhoto = reader.result;
+        setProfilePhoto(uploadedPhoto);
+        localStorage.setItem("profilePhoto", uploadedPhoto); // ✅ Save to localStorage
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  // Logout logic
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("profilePhoto"); // ✅ Clear profile photo on logout
+    setToken("");
+    setProfilePhoto(assets.profile_icon); // Reset photo after logout
+    navigate("/");
   };
 
   return (
@@ -74,9 +82,7 @@ const Navbar = ({ setShowLogin }) => {
           <div className="navbar-profile">
             <img src={profilePhoto} alt="Profile" />
             <ul className="navbar-profile-dropdown">
-              <li onClick={() => navigate("/profile")}>
-                <p>My Profile</p>
-              </li>
+             
               <li>
                 <label htmlFor="profilePhotoUpload">
                   <p>Upload Photo</p>
@@ -92,7 +98,6 @@ const Navbar = ({ setShowLogin }) => {
               <li onClick={() => navigate("/myorders")}>
                 <p>My Orders</p>
               </li>
-             
               <hr />
               <li onClick={logout}>
                 <p>Logout</p>
