@@ -12,7 +12,7 @@ const AppDownload = () => {
       <div className="app-download-platforms">
         {/* Link to Play Store */}
         <a
-          href="https://play.google.com/store/apps/details?id=com.tomatoapp"
+          href="https://play.google.com/store/apps/details?id=com.toatoapp"
           target="_blank"
           rel="noopener noreferrer"
         >
