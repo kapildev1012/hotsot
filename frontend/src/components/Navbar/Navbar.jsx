@@ -77,6 +77,7 @@ const Navbar = ({ setShowLogin }) => {
               <li onClick={() => navigate("/profile")}>
                 <p>My Profile</p>
               </li>
+
               <li>
                 <label htmlFor="profilePhotoUpload">
                   <p>Upload Photo</p>
@@ -92,7 +93,7 @@ const Navbar = ({ setShowLogin }) => {
               <li onClick={() => navigate("/myorders")}>
                 <p>My Orders</p>
               </li>
-             
+
               <hr />
               <li onClick={logout}>
                 <p>Logout</p>

@@ -7,9 +7,10 @@ import Cart from "./pages/Cart/Cart";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import MyOrders from "./pages/MyOrders/MyOrders";
+import Verify from "./pages/Verify/Verify";
+import Profile from "./pages/Profile/Profile"; // ✅ New Profile Page Import
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Verify from "./pages/Verify/Verify";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -32,8 +33,10 @@ const App = () => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/verify" element={<Verify />} />
+          <Route path="/profile" element={<Profile />} />{" "}
+          {/* ✅ Added Profile Route */}
           <Route path="*" element={<h2>404 - Page Not Found</h2>} />{" "}
-          {/* Fallback route for 404 */}
+          {/* Fallback route */}
         </Routes>
       </div>
       <Footer />
